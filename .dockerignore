@@ -1,0 +1,6 @@
+*.test
+.git
+Dockerfile
+.gitignore
+env.*
+/bin/
