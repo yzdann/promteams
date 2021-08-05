@@ -12,7 +12,7 @@ services:
       TEAMS_REQUEST_URI: ${TEAMS_REQUEST_URI}
 
   alertmanager:
-    image: prometheus/alertmanager:${ALERTMANGER_IMAGE_TAGE}
+    image: quay.io/prometheus/alertmanager:${ALERTMANGER_IMAGE_TAGE}
     container_name: alertmanager
     restart: always
     ports:
