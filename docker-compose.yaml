@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  promteams:
+    image: prometheusmsteams/prometheus-msteams:${PROM_TEAMS_IMAGE_TAG}
+    container_name: promteams
+    restart: always
+    ports:
+      - "2000:2000"
+    environment:
+      TEAMS_INCOMING_WEBHOOK_URL: ${TEAMS_INCOMING_WEBHOOK_URL}
+      TEAMS_REQUEST_URI: ${TEAMS_REQUEST_URI}
+
+  alertmanager:
+    image: prometheus/alertmanager:${ALERTMANGER_IMAGE_TAGE}
+    container_name: alertmanager
+    restart: always
+    ports:
+      - "9093:9093"
+    volumes:
+      - ${ALERTMANGER_CONFIG}:/etc/alertmanager/alertmanager.yml
